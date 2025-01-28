@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $data = "{$firstname}:{$lastname}:{$username}:{$email}\n";
 }
-if ($firstname and $firstname and $username and $email) {
+if ($firstname and $lastname and $username and $email) {
     $fileHandle = fopen("customer.txt", "a");
     if ($fileHandle) {
         fwrite($fileHandle, $data);
