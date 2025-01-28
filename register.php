@@ -2,20 +2,9 @@
 
 if (isset($_GET['errors'])) {
     $errors = json_decode($_GET['errors'], true);
-    extract($errors);  # variable with values --> based on errors
 }
 if (isset($_GET['old'])) {
     $old_data = json_decode($_GET['old'], true);
-
-    if (isset($old_data['firstname'])) {
-        $old_firstname = $old_data['firstname'];
-    }
-    if (isset($old_data['lastname'])) {
-        $old_lastname = $old_data['lastname'];
-    }
-    if (isset($old_data['username'])) {
-        $old_username = $old_data['username'];
-    }
 }
 ?>
 
@@ -38,23 +27,25 @@ if (isset($_GET['old'])) {
             <div class="mb-3">
 
                 <label for="firstName" class="form-label fs-4">First Name</label>
-                <input type="text" name="firstname" value="<?php echo $old_firstname ?? ''; ?>" class="
+                <input type="text" name="firstname" value="<?php echo $old_data['firstname'] ?? ''; ?>" class="
                     form-control">
-                <p class="text-danger"> <?php echo $firstname ?? '' ?> </p>
+                <p class="text-danger"> <?php echo $errors['firstname'] ?? '' ?> </p>
 
 
                 <label for=" lastName" class="form-label fs-4">Last Name</label>
-                <input type="text" name="lastname" value="<?php echo $old_lastname ?? ''; ?>" class="form-control">
-                <p class="text-danger"> <?php echo $lastname ?? '' ?> </p>
+                <input type="text" name="lastname" value="<?php echo $old_data['lastname'] ?? ''; ?>"
+                    class="form-control">
+                <p class="text-danger"> <?php echo $errors['lastname']  ?? '' ?> </p>
 
 
                 <label for="username" class="form-label fs-4">User Name</label>
-                <input type="text" name="username" value="<?php echo $old_username ?? ''; ?>" class="form-control">
-                <p class="text-danger"> <?php echo $username ?? '' ?> </p>
+                <input type="text" name="username" value="<?php echo $old_data['username'] ?? ''; ?>"
+                    class="form-control">
+                <p class="text-danger"> <?php echo $errors['username']   ?? '' ?> </p>
 
                 <label for="lastName" class="form-label fs-4">E-Mail</label>
-                <input type="text" name="email" value="<?php echo $old_email ?? ''; ?>" class=" form-control">
-                <p class="text-danger"> <?php echo $email ?? '' ?> </p>
+                <input type="text" name="email" value="<?php echo $old_data['email'] ?? ''; ?>" class=" form-control">
+                <p class="text-danger"> <?php echo $errors['email']  ?? '' ?> </p>
 
             </div>
             <div class="col-12 row">

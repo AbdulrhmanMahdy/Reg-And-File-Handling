@@ -19,15 +19,15 @@ if ($firstname and $firstname and $username and $email) {
     $old = [];
     foreach ($_POST as $key => $value) {
         if (! $value) {
-            $errors[$key] = "Please enter a {$key}";
+            $errors[$key] = " * Must  Enter {$key}";
         } else {
             $old[$key] = $value;
         }
     }
 
-    print_r($errors);
     $errors = json_encode($errors);
     $url  = "Location: register.php?errors={$errors}";
+
     if (count($old)) {
         $old = json_encode($old);
         $url  = "{$url}&old={$old}";

@@ -21,8 +21,6 @@ if (isset($_GET['index'])) {
         fwrite($fileHandle, '' . PHP_EOL);
     }
     header("Location: makeTable.php");
-
-    exit;
 }
 
 

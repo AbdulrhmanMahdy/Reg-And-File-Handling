@@ -21,7 +21,7 @@ function drawTable($customers)
 {
     echo "<table class='table container col-12'>";
     echo " <tr>  <th>ID</th>  <th>First Name</th> <th>Last Name</th> <th>User Name</th> 
-        <th>E-Mail</th> <th>Show</th> <th>Delete</th></tr>";
+        <th>E-Mail</th>  <th>Delete</th></tr>";
     foreach ($customers as $index => $customer) {
         $var = $index + 1;
         echo "<tr>";
@@ -30,7 +30,7 @@ function drawTable($customers)
 
             echo "<td>{$value}</td>";
         }
-        echo "<td><a class='btn btn-info'><B>Show</B></a></td>";
+
         echo "<td><a href='deleteTable.php?index=$index'class='btn btn-Danger text-black'><B>Delete</B></a></td>";
         echo "</tr>";
     }
